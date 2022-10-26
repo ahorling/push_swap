@@ -4,13 +4,34 @@
 # include "libraries/libft/includes/libft.h"
 # include <stdio.h>
 
-typedef struct	s_node
+typedef struct s_node
 {
-	t_node	*prev;
+	struct s_node	*prev;
 	int		data;
-	t_node	*next;
+	struct s_node	*next;
 }	t_node;
 
-int	check_input(int length, char** arguments);
+//main function
+void	push_swap(int length, char** arguments);
+
+//parsing and checker functions
+int		check_input(int length, char** arguments);
+int		check_ordered(t_node *head);
+
+//list based functions
+t_node	*create_node(int value);
+void	*insert_begin(int value, t_node *head);
+void	*insert_end(int value, t_node *head);
+int		list_size(t_node *head);
+
+//swap functions
+void	swap_a(t_node *head);
+void	swap_b(t_node *head);
+void	swap_both(t_node *head_a, t_node *head_b);
+
+//rotate functions
+void	rotate_a(t_node **head);
+void	rotate_b(t_node *head);
+void	rotate_both(t_node *head_a, t_node *head_b);
 
 #endif
