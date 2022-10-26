@@ -6,21 +6,23 @@
 /*   By: ahorling <ahorling@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/26 20:20:10 by ahorling      #+#    #+#                 */
-/*   Updated: 2022/10/26 20:45:47 by ahorling      ########   odam.nl         */
+/*   Updated: 2022/10/26 21:39:20 by ahorling      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/push_swap.h"
 
-void	swap_a(t_node *head)
+void	swap_a(t_node **head)
 {
-	int temp;
+	t_node *temp;
 
 	if (head == NULL)
 		return;
-	temp = head->data;
-	head->data = head->next->data;
-	head->next->data = temp;
+	temp = *head;
+	*head = (*head)->next;
+	temp->prev->next = *head;
+	temp->next = (*head)->next;
+	(*head)->next = temp;
 	ft_printf("sa\n");
 }
 

@@ -6,7 +6,7 @@
 /*   By: ahorling <ahorling@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/26 17:00:05 by ahorling      #+#    #+#                 */
-/*   Updated: 2022/10/26 21:31:12 by ahorling      ########   odam.nl         */
+/*   Updated: 2022/10/26 21:40:32 by ahorling      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,12 +56,12 @@ void	push_swap(int length, char **arguments)
 		ft_printf("list already ordered");
 		return;
 	}
-//	print_list(point_a);
-//	ft_printf("\n");
-//	swap_a(head_a);
-//	print_list(point_a);
-//	ft_printf("\n");
-	rotate_a(&head_a);
-	print_list(head_a);
+	print_list(point_a);
 	ft_printf("\n");
+	swap_a(&head_a);
+	print_list(head_a);
+	// ft_printf("\n");
+	// rotate_a(&head_a);
+	// print_list(head_a);
+	// ft_printf("\n");
 }
