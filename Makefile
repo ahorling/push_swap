@@ -25,6 +25,7 @@ SOURCES 	:=	main.c\
 				push_swap.c\
 				swap.c\
 				rotate.c\
+				push.c\
 
 LIBRARIES	:=	./libraries/libft/libft.a\
 				
