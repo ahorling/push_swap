@@ -6,7 +6,7 @@
 /*   By: ahorling <ahorling@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/23 16:40:50 by ahorling      #+#    #+#                 */
-/*   Updated: 2022/10/26 20:19:22 by ahorling      ########   odam.nl         */
+/*   Updated: 2022/10/27 19:14:19 by ahorling      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ t_node	*create_node(int value)
 	return (new_node);
 }
 
-void	*insert_begin(int value, t_node *head)
+void	insert_begin(int value, t_node *head)
 {
 	t_node *new_node;
 
@@ -37,7 +37,7 @@ void	*insert_begin(int value, t_node *head)
 			new_node->next = new_node;
 			new_node->prev = new_node;
 			head = new_node;
-			return (0);
+			return;
 		}
 		head->prev->next = new_node;
 		new_node->prev = head->prev;
@@ -45,10 +45,10 @@ void	*insert_begin(int value, t_node *head)
 		head->prev = new_node;
 		head = new_node;
 	}
-	return (0);
+	return;
 }
 
-void	*insert_end(int value, t_node *head)
+void	insert_end(int value, t_node *head)
 {
 	t_node *new_node;
 
@@ -60,14 +60,14 @@ void	*insert_end(int value, t_node *head)
 			new_node->next = new_node;
 			new_node->prev = new_node;
 			head = new_node;
-			return (0);
+			return;
 		}
 		head->prev->next = new_node;
 		new_node->prev = head->prev;
 		new_node->next = head;
 		head->prev = new_node;
 	}
-	return (0);
+	return;
 }
 
 int		list_size(t_node *head)
@@ -87,3 +87,34 @@ int		list_size(t_node *head)
 	}
 	return (count);
 }
+
+// void	delete_begin(t_node **head)
+// {
+// 	if (*head == NULL)
+// 		return;
+// 	else if ((*head)->next == *head)
+// 	{
+// 		free(head);
+// 		return;
+// 	}
+// 	(*head)->prev->next = (*head)->next;
+// 	(*head)->next->prev = (*head)->prev;
+// 	(*head) = (*head)->next;
+// }
+
+// void	delete_end(t_node **head)
+// {
+// 	t_node *last;
+
+// 	if (head == NULL)
+// 		return;
+// 	else if ((*head)->next == *head)
+// 	{
+// 		free(head);
+// 		return;
+// 	}
+// 	last = (*head)->prev;
+// 	last->prev->next = *head;
+// 	(*head)->prev = last->prev;
+// 	free(last);
+// }

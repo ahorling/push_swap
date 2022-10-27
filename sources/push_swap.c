@@ -6,7 +6,7 @@
 /*   By: ahorling <ahorling@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/26 17:00:05 by ahorling      #+#    #+#                 */
-/*   Updated: 2022/10/26 21:40:32 by ahorling      ########   odam.nl         */
+/*   Updated: 2022/10/27 21:00:17 by ahorling      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,8 @@ void	print_list(t_node *head)
 	{
 		ft_printf("%d ", temp->data);
 		temp = temp->next;
-	}	
+	}
+	ft_printf("\n");
 }
 
 void generate_list(int length, char **arguments, t_node *head)
@@ -46,22 +47,21 @@ void generate_list(int length, char **arguments, t_node *head)
 void	push_swap(int length, char **arguments)
 {
 	t_node *head_a;
-	t_node *point_a;
+	t_node *head_b;
 
+	head_b = NULL;
 	head_a = create_node(ft_atoi(arguments[1]));
-	point_a = head_a;
 	generate_list(length, arguments, head_a);
 	if (check_ordered(head_a) == 1)
 	{
 		ft_printf("list already ordered");
 		return;
 	}
-	print_list(point_a);
-	ft_printf("\n");
-	swap_a(&head_a);
+	push_b(&head_a, &head_b);
+	push_b(&head_a, &head_b);
 	print_list(head_a);
-	// ft_printf("\n");
-	// rotate_a(&head_a);
-	// print_list(head_a);
-	// ft_printf("\n");
+	print_list(head_b);
+	swap_both(&head_a, &head_b);
+	print_list(head_a);
+	print_list(head_b);
 }

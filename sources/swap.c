@@ -6,7 +6,7 @@
 /*   By: ahorling <ahorling@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/26 20:20:10 by ahorling      #+#    #+#                 */
-/*   Updated: 2022/10/26 21:39:20 by ahorling      ########   odam.nl         */
+/*   Updated: 2022/10/27 20:59:18 by ahorling      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,36 +19,50 @@ void	swap_a(t_node **head)
 	if (head == NULL)
 		return;
 	temp = *head;
-	*head = (*head)->next;
-	temp->prev->next = *head;
+	temp->prev = (*head)->prev;
+	(*head)->prev->next = (*head)->next;
+	(*head)->prev = (*head)->next;
+	(*head) = (*head)->next;
 	temp->next = (*head)->next;
 	(*head)->next = temp;
 	ft_printf("sa\n");
 }
 
-void	swap_b(t_node *head)
+void	swap_b(t_node **head)
 {
-	int temp;
+	t_node *temp;
 
 	if (head == NULL)
 		return;
-	temp = head->data;
-	head->data = head->next->data;
-	head->next->data = temp;
+	temp = *head;
+	temp->prev = (*head)->prev;
+	(*head)->prev->next = (*head)->next;
+	(*head)->prev = (*head)->next;
+	(*head) = (*head)->next;
+	temp->next = (*head)->next;
+	(*head)->next = temp;
 	ft_printf("sb\n");
 }
 
-void	swap_both(t_node *head_a, t_node *head_b)
+void	swap_both(t_node **head_a, t_node **head_b)
 {
-	int	temp;
+	t_node *temp;
 
 	if (head_a == NULL || head_b == NULL)
 		return;
-	temp = head_a->data;
-	head_a->data = head_a->next->data;
-	head_a->next->data = temp;
-	temp = head_b->data;
-	head_b->data = head_b->next->data;
-	head_b->next->data = temp;
+	temp = *head_a;
+	temp->prev = (*head_a)->prev;
+	(*head_a)->prev->next = (*head_a)->next;
+	(*head_a)->prev = (*head_a)->next;
+	(*head_a) = (*head_a)->next;
+	temp->next = (*head_a)->next;
+	(*head_a)->next = temp;
+	temp = *head_b;
+	temp->prev = (*head_b)->prev;
+	(*head_b)->prev->next = (*head_b)->next;
+	(*head_b)->prev = (*head_b)->next;
+	(*head_b) = (*head_b)->next;
+	temp->next = (*head_b)->next;
+	(*head_b)->next = temp;
 	ft_printf("ss\n");
 }
