@@ -25,7 +25,10 @@ SOURCES 	:=	main.c\
 				push_swap.c\
 				swap.c\
 				rotate.c\
+				r_rotate.c\
 				push.c\
+				basic_algos.c\
+				utils.c\
 
 LIBRARIES	:=	./libraries/libft/libft.a\
 				
