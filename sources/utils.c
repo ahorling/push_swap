@@ -6,7 +6,7 @@
 /*   By: ahorling <ahorling@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/28 21:30:08 by ahorling      #+#    #+#                 */
-/*   Updated: 2022/10/28 21:38:22 by ahorling      ########   odam.nl         */
+/*   Updated: 2022/10/29 19:01:04 by ahorling      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ bool	check_ordered(t_node **head)
 	return (true);
 }
 
-void	raise_lowest(t_node **head_a)
+int		find_lowest(t_node **head_a)
 {
 	int		tempnum;
 	t_node	*temp;
@@ -52,6 +52,40 @@ void	raise_lowest(t_node **head_a)
 			tempnum = temp->data;
 		temp = temp->next;
 	}
+	return(tempnum);
+}
+
+int		find_next_lowest(t_node **head_a, int previous)
+{
+	int		tempnum;
+	t_node	*temp;
+
+	tempnum = (*head_a)->data;
+	temp = *head_a;
+	while (tempnum <= previous)
+	{
+		temp = temp->next;
+		tempnum = temp->data;
+	}
+	if (tempnum > temp->data && temp->data > previous )
+		tempnum = temp->data;
+	temp = temp->next;
+	while (temp != *(head_a))
+	{
+		if (tempnum > temp->data && temp->data > previous)
+			tempnum = temp->data;
+		temp = temp->next;
+	}
+	return(tempnum);
+}
+
+void	raise_lowest(t_node **head_a)
+{
+	int		tempnum;
+	
+	tempnum = find_lowest(head_a);
+	if (tempnum == (*head_a)->prev->data)
+		r_rotate_a(head_a);
 	while ((*head_a)->data != tempnum)
 		rotate_a(head_a);
 }

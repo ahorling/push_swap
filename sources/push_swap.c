@@ -6,7 +6,7 @@
 /*   By: ahorling <ahorling@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/26 17:00:05 by ahorling      #+#    #+#                 */
-/*   Updated: 2022/10/28 19:48:55 by ahorling      ########   odam.nl         */
+/*   Updated: 2022/10/29 21:52:50 by ahorling      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,14 +52,12 @@ void	push_swap(int length, char **arguments)
 	head_b = NULL;
 	head_a = NULL;
 	generate_list(length, arguments, &head_a);
-	print_list(head_a);
 	if (check_ordered(&head_a) == true)
 	{
 		print_list(head_a);
 		return;
 	}
 	begin_algos(&head_a, &head_b);
-	print_list(head_a);
 	if (check_ordered(&head_a) == 1)
 	{
 		free_list(&head_a);

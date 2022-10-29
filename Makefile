@@ -29,6 +29,7 @@ SOURCES 	:=	main.c\
 				push.c\
 				basic_algos.c\
 				utils.c\
+				radix.c\
 
 LIBRARIES	:=	./libraries/libft/libft.a\
 				

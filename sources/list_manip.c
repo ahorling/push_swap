@@ -6,7 +6,7 @@
 /*   By: ahorling <ahorling@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/23 16:40:50 by ahorling      #+#    #+#                 */
-/*   Updated: 2022/10/28 19:44:00 by ahorling      ########   odam.nl         */
+/*   Updated: 2022/10/29 21:00:32 by ahorling      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,34 +104,3 @@ void	free_list(t_node **head)
 	}
 	free(*head);
 }
-
-// void	delete_begin(t_node **head)
-// {
-// 	if (*head == NULL)
-// 		return;
-// 	else if ((*head)->next == *head)
-// 	{
-// 		free(head);
-// 		return;
-// 	}
-// 	(*head)->prev->next = (*head)->next;
-// 	(*head)->next->prev = (*head)->prev;
-// 	(*head) = (*head)->next;
-// }
-
-// void	delete_end(t_node **head)
-// {
-// 	t_node *last;
-
-// 	if (head == NULL)
-// 		return;
-// 	else if ((*head)->next == *head)
-// 	{
-// 		free(head);
-// 		return;
-// 	}
-// 	last = (*head)->prev;
-// 	last->prev->next = *head;
-// 	(*head)->prev = last->prev;
-// 	free(last);
-// }

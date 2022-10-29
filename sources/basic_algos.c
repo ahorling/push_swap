@@ -6,7 +6,7 @@
 /*   By: ahorling <ahorling@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/28 15:08:42 by ahorling      #+#    #+#                 */
-/*   Updated: 2022/10/28 21:40:29 by ahorling      ########   odam.nl         */
+/*   Updated: 2022/10/29 18:09:52 by ahorling      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,6 @@ void	begin_algos(t_node **head_a, t_node **head_b)
  		four_nums(head_a, head_b);
 	if (size == 5)
 		five_nums(head_a, head_b);
-// 	if (size > 5)
-// 		radix_sort(head_a, head_b);
+ 	if (size > 5)
+ 		radix_sort(head_a, head_b, size);
 }

@@ -6,7 +6,7 @@
 /*   By: ahorling <ahorling@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/17 07:43:35 by ahorling      #+#    #+#                 */
-/*   Updated: 2022/10/28 21:35:13 by ahorling      ########   odam.nl         */
+/*   Updated: 2022/10/29 16:12:08 by ahorling      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ bool	num_checker(const char *argument)
 
 	i = 0;
 	temp = true;
+	if (argument[i] == '\0')
+		return (false);
 	while (argument[i] != '\0')
 	{
 		if (i == 0)
@@ -42,6 +44,21 @@ bool	num_checker(const char *argument)
 	return (true);
 }
 
+bool	check_dupes(int length, char **args, int argnum)
+{
+	int i;
+
+	i = argnum + 1;
+	while (i <= length)
+	{
+		if (ft_strcmp(args[argnum], args[i]) != 0)
+			i++;
+		else
+			return (false);
+	}
+	return (true);
+}
+
 bool	check_input(int length, char **args)
 {
 	int	i;
@@ -51,6 +68,8 @@ bool	check_input(int length, char **args)
 		return (false);
 	while (i <= length)
 	{
+		if (check_dupes(length, args, i) == false)
+			return (false);
 		if (num_checker(args[i]) == false)
 			return (false);
 		i++;

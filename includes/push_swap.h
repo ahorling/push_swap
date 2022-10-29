@@ -17,6 +17,7 @@ void	push_swap(int length, char** arguments);
 
 //parsing and checker functions
 bool	check_input(int length, char** arguments);
+bool	check_dupes(int length, char **args, int argnum);
 
 //list based functions
 t_node	*create_node(int value);
@@ -54,5 +55,14 @@ void	five_nums(t_node **head_a, t_node **head_b);
 //utility functions
 bool	check_ordered(t_node **head);
 void	raise_lowest(t_node **head);
+int		find_lowest(t_node **head_a);
+int		find_next_lowest(t_node **head_a, int data);
+
+//radix functions
+int     count_bits(int number);
+int		convert_nums(t_node **head_a, int size);
+void    reset_nums(t_node **head_a, int size, int *array);
+void    begin_sort(t_node **head_a, t_node **head_b, int size, int iter);
+void    radix_sort(t_node **head_a, t_node **head_b, int size);
 
 #endif
