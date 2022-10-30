@@ -6,7 +6,7 @@
 /*   By: ahorling <ahorling@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/28 15:08:42 by ahorling      #+#    #+#                 */
-/*   Updated: 2022/10/30 18:37:32 by ahorling      ########   odam.nl         */
+/*   Updated: 2022/10/30 18:55:59 by ahorling      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,7 @@
 
 void	two_nums(t_node **head)
 {
-	if (check_ordered(head) == true)
-		return ;
-	else
-		swap_a(head);
+	swap_a(head);
 }
 
 void	three_nums(t_node **head_a)
