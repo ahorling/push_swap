@@ -6,7 +6,7 @@
 /*   By: ahorling <ahorling@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/23 16:40:50 by ahorling      #+#    #+#                 */
-/*   Updated: 2022/10/29 21:00:32 by ahorling      ########   odam.nl         */
+/*   Updated: 2022/10/30 17:05:42 by ahorling      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 
 t_node	*create_node(int value)
 {
-	t_node *new_node;
+	t_node	*new_node;
 
 	new_node = malloc(sizeof(t_node));
 	if (!new_node)
-		return(NULL);
+		return (NULL);
 	new_node->data = value;
 	new_node->next = new_node;
 	new_node->prev = new_node;
@@ -27,53 +27,51 @@ t_node	*create_node(int value)
 
 void	insert_begin(int value, t_node **head)
 {
-	t_node *new_node;
+	t_node	*new_node;
 
 	new_node = create_node(value);
-	if (new_node)
+	if (!new_node)
+		return ;
+	if (head == NULL)
 	{
-		if (head == NULL)
-		{
-			new_node->next = new_node;
-			new_node->prev = new_node;
-			*head = new_node;
-			return;
-		}
-		(*head)->prev->next = new_node;
-		new_node->prev = (*head)->prev;
-		new_node->next = *head;
-		(*head)->prev = new_node;
+		new_node->next = new_node;
+		new_node->prev = new_node;
 		*head = new_node;
+		return ;
 	}
-	return;
+	(*head)->prev->next = new_node;
+	new_node->prev = (*head)->prev;
+	new_node->next = *head;
+	(*head)->prev = new_node;
+	*head = new_node;
+	return ;
 }
 
 void	insert_end(int value, t_node **head)
 {
-	t_node *new_node;
+	t_node	*new_node;
 
 	new_node = create_node(value);
-	if (new_node)
+	if (!new_node)
+		return ;
+	if (*head == NULL)
 	{
-		if (*head == NULL)
-		{
-			new_node->next = new_node;
-			new_node->prev = new_node;
-			*head = new_node;
-			return;
-		}
-		(*head)->prev->next = new_node;
-		new_node->prev = (*head)->prev;
-		new_node->next = *head;
-		(*head)->prev = new_node;
+		new_node->next = new_node;
+		new_node->prev = new_node;
+		*head = new_node;
+		return ;
 	}
-	return;
+	(*head)->prev->next = new_node;
+	new_node->prev = (*head)->prev;
+	new_node->next = *head;
+	(*head)->prev = new_node;
+	return ;
 }
 
-int		list_size(t_node **head)
+int	list_size(t_node **head)
 {
-	t_node *temp;
-	int count;
+	t_node	*temp;
+	int		count;
 
 	temp = *head;
 	if (head == NULL)
@@ -90,10 +88,10 @@ int		list_size(t_node **head)
 
 void	free_list(t_node **head)
 {	
-	t_node *temp;
+	t_node	*temp;
 
 	if (*head == NULL)
-		return;
+		return ;
 	while ((*head)->next != *head)
 	{
 		temp = *head;

@@ -6,7 +6,7 @@
 /*   By: ahorling <ahorling@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/26 20:53:50 by ahorling      #+#    #+#                 */
-/*   Updated: 2022/10/27 16:00:16 by ahorling      ########   odam.nl         */
+/*   Updated: 2022/10/30 18:39:19 by ahorling      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	rotate_a(t_node **head)
 {
 	if (head == NULL)
-		return;
+		return ;
 	*head = (*head)->next;
 	ft_printf("ra\n");
 }
@@ -23,7 +23,7 @@ void	rotate_a(t_node **head)
 void	rotate_b(t_node **head)
 {
 	if (head == NULL)
-		return;
+		return ;
 	*head = (*head)->next;
 	ft_printf("rb\n");
 }
@@ -31,7 +31,7 @@ void	rotate_b(t_node **head)
 void	rotate_both(t_node **head_a, t_node **head_b)
 {
 	if (head_b == NULL || head_b == NULL)
-		return;
+		return ;
 	*head_a = (*head_a)->next;
 	*head_b = (*head_b)->next;
 	ft_printf("rr\n");

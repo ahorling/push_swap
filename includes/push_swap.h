@@ -1,23 +1,37 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        ::::::::            */
+/*   push_swap.h                                        :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: ahorling <ahorling@student.codam.nl>         +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2022/10/30 17:17:46 by ahorling      #+#    #+#                 */
+/*   Updated: 2022/10/30 18:35:42 by ahorling      ########   odam.nl         */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
 # include "libraries/libft/includes/libft.h"
 # include <stdio.h>
 # include <stdbool.h>
+# include <limits.h>
 
 typedef struct s_node
 {
 	struct s_node	*prev;
-	int		data;
+	int				data;
 	struct s_node	*next;
 }	t_node;
 
 //main function
-void	push_swap(int length, char** arguments);
+void	push_swap(int length, char **arguments);
 
 //parsing and checker functions
-bool	check_input(int length, char** arguments);
+bool	check_input(int length, char **arguments);
 bool	check_dupes(int length, char **args, int argnum);
+bool	check_nonint(char *string);
 
 //list based functions
 t_node	*create_node(int value);
@@ -59,10 +73,10 @@ int		find_lowest(t_node **head_a);
 int		find_next_lowest(t_node **head_a, int data);
 
 //radix functions
-int     count_bits(int number);
-int		convert_nums(t_node **head_a, int size);
-void    reset_nums(t_node **head_a, int size, int *array);
-void    begin_sort(t_node **head_a, t_node **head_b, int size, int iter);
-void    radix_sort(t_node **head_a, t_node **head_b, int size);
+int		count_bits(int number);
+bool	convert_nums(t_node **head_a, int size);
+void	reset_nums(t_node **head_a, int size, int *array);
+void	begin_sort(t_node **head_a, t_node **head_b, int size, int iter);
+void	radix_sort(t_node **head_a, t_node **head_b, int size);
 
 #endif

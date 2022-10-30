@@ -6,7 +6,7 @@
 /*   By: ahorling <ahorling@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/11/17 13:00:27 by ahorling      #+#    #+#                 */
-/*   Updated: 2022/09/28 17:34:10 by ahorling      ########   odam.nl         */
+/*   Updated: 2022/10/30 17:16:50 by ahorling      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <unistd.h>
 # include <stdlib.h>
+# include <stdbool.h>
 # include "ft_printf.h"
 
 int		ft_atoi(const char *str);
@@ -59,5 +60,7 @@ int		ft_numberleng(long long n);
 char	*ft_ulong_to_hexa_lower(unsigned long n);
 char	*ft_ulong_to_hexa_upper(unsigned long n);
 int		ft_strcmp(char *string1, char *string2);
+bool	ft_isnum(char c);
+int		ft_whtspce(const char *str);
 
 #endif

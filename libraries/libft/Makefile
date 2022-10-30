@@ -6,7 +6,7 @@
 #    By: alexander <alexander@student.codam.nl>       +#+                      #
 #                                                    +#+                       #
 #    Created: 2020/12/04 10:25:30 by alexander     #+#    #+#                  #
-#    Updated: 2022/09/19 15:11:59 by ahorling      ########   odam.nl          #
+#    Updated: 2022/10/30 16:45:11 by ahorling      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -59,6 +59,8 @@ SOURCES	:= 	ft_atoi.c \
 		ft_hexalower.c \
 		ft_hexaupper.c \
 		ft_strcmp.c \
+		ft_isnum.c \
+		ft_whtspace.c \
 
 OBJECT_DIR	:=	./objects
 INCLUDE_DIR	:= 	./includes

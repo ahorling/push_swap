@@ -6,7 +6,7 @@
 /*   By: ahorling <ahorling@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/28 21:30:08 by ahorling      #+#    #+#                 */
-/*   Updated: 2022/10/29 19:01:04 by ahorling      ########   odam.nl         */
+/*   Updated: 2022/10/30 18:37:01 by ahorling      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 bool	check_ordered(t_node **head)
 {
-	t_node *temp;
+	t_node	*temp;
 	int		size;
 	int		i;
 
@@ -23,6 +23,8 @@ bool	check_ordered(t_node **head)
 	i = 0;
 	temp = *head;
 	size = list_size(head);
+	if (size == 0)
+		return (false);
 	while (i < size - 1)
 	{
 		if (temp->data < temp->next->data)
@@ -36,7 +38,7 @@ bool	check_ordered(t_node **head)
 	return (true);
 }
 
-int		find_lowest(t_node **head_a)
+int	find_lowest(t_node **head_a)
 {
 	int		tempnum;
 	t_node	*temp;
@@ -52,10 +54,10 @@ int		find_lowest(t_node **head_a)
 			tempnum = temp->data;
 		temp = temp->next;
 	}
-	return(tempnum);
+	return (tempnum);
 }
 
-int		find_next_lowest(t_node **head_a, int previous)
+int	find_next_lowest(t_node **head_a, int previous)
 {
 	int		tempnum;
 	t_node	*temp;
@@ -67,7 +69,7 @@ int		find_next_lowest(t_node **head_a, int previous)
 		temp = temp->next;
 		tempnum = temp->data;
 	}
-	if (tempnum > temp->data && temp->data > previous )
+	if (tempnum > temp->data && temp->data > previous)
 		tempnum = temp->data;
 	temp = temp->next;
 	while (temp != *(head_a))
@@ -76,13 +78,13 @@ int		find_next_lowest(t_node **head_a, int previous)
 			tempnum = temp->data;
 		temp = temp->next;
 	}
-	return(tempnum);
+	return (tempnum);
 }
 
 void	raise_lowest(t_node **head_a)
 {
-	int		tempnum;
-	
+	int	tempnum;
+
 	tempnum = find_lowest(head_a);
 	if (tempnum == (*head_a)->prev->data)
 		r_rotate_a(head_a);

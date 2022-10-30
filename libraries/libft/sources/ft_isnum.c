@@ -1,24 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   main.c                                             :+:    :+:            */
+/*   ft_isnum.c                                         :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: ahorling <ahorling@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2022/10/17 06:17:31 by ahorling      #+#    #+#                 */
-/*   Updated: 2022/10/30 17:06:10 by ahorling      ########   odam.nl         */
+/*   Created: 2022/10/30 16:34:00 by ahorling      #+#    #+#                 */
+/*   Updated: 2022/10/30 17:16:14 by ahorling      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/push_swap.h"
+#include "includes/libft.h"
 
-int	main(int argc, char **argv)
+bool	ft_isnum(char c)
 {
-	if (check_input(argc - 1, argv) == false)
-	{
-		ft_printf("Error\n");
-		return (1);
-	}
-	push_swap(argc - 1, argv);
-	return (0);
+	if (c == '-' || c == '+' || (c >= '0' && c <= '9'))
+		return (true);
+	else
+		return (false);
 }

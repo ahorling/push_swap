@@ -6,23 +6,15 @@
 /*   By: ahorling <ahorling@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/17 07:43:35 by ahorling      #+#    #+#                 */
-/*   Updated: 2022/10/29 16:12:08 by ahorling      ########   odam.nl         */
+/*   Updated: 2022/10/30 17:07:20 by ahorling      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/push_swap.h"
 
-static int	ft_isnum(char c)
-{
-	if(c == '-' || c == '+' || (c >= '0' && c <= '9'))
-		return (true);
-	else
-		return (false);
-}
-
 bool	num_checker(const char *argument)
 {
-	int 	i;
+	int		i;
 	bool	temp;
 
 	i = 0;
@@ -46,7 +38,7 @@ bool	num_checker(const char *argument)
 
 bool	check_dupes(int length, char **args, int argnum)
 {
-	int i;
+	int	i;
 
 	i = argnum + 1;
 	while (i <= length)
@@ -57,6 +49,34 @@ bool	check_dupes(int length, char **args, int argnum)
 			return (false);
 	}
 	return (true);
+}
+
+bool	check_nonint(char *str)
+{
+	long	value;
+	long	i;
+	int		neg;
+
+	i = ft_whtspce(str);
+	value = 0;
+	neg = 1;
+	if (str[i] == '-' || str[i] == '+')
+	{
+		if (str[i] == '-')
+			neg = -1;
+		i++;
+	}
+	while (str[i] >= '0' && str[i] <= '9')
+	{
+		value = value * 10;
+		value = value + str[i] - '0';
+		i++;
+	}
+	value = value * neg;
+	if (value > INT_MAX || value < INT_MIN)
+		return (false);
+	else
+		return (true);
 }
 
 bool	check_input(int length, char **args)
@@ -71,6 +91,8 @@ bool	check_input(int length, char **args)
 		if (check_dupes(length, args, i) == false)
 			return (false);
 		if (num_checker(args[i]) == false)
+			return (false);
+		if (check_nonint(args[i]) == false)
 			return (false);
 		i++;
 	}

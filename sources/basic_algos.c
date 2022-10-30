@@ -6,7 +6,7 @@
 /*   By: ahorling <ahorling@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/28 15:08:42 by ahorling      #+#    #+#                 */
-/*   Updated: 2022/10/29 18:09:52 by ahorling      ########   odam.nl         */
+/*   Updated: 2022/10/30 18:37:32 by ahorling      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	two_nums(t_node **head)
 {
 	if (check_ordered(head) == true)
-		return;
+		return ;
 	else
 		swap_a(head);
 }
@@ -29,7 +29,6 @@ void	three_nums(t_node **head_a)
 	top = (*head_a)->data;
 	middle = (*head_a)->next->data;
 	bottom = (*head_a)->prev->data;
-
 	if (top > middle && middle < bottom && top < bottom)
 		swap_a(head_a);
 	else if (top < middle && middle > bottom && top > bottom)
@@ -64,7 +63,7 @@ void	five_nums(t_node **head_a, t_node **head_b)
 	push_to_b(head_a, head_b);
 	three_nums(head_a);
 	push_to_a(head_a, head_b);
-	push_to_a(head_a, head_b);	
+	push_to_a(head_a, head_b);
 }
 
 void	begin_algos(t_node **head_a, t_node **head_b)
@@ -76,10 +75,10 @@ void	begin_algos(t_node **head_a, t_node **head_b)
 		two_nums(head_a);
 	if (size == 3)
 		three_nums(head_a);
- 	if (size == 4)
- 		four_nums(head_a, head_b);
+	if (size == 4)
+		four_nums(head_a, head_b);
 	if (size == 5)
 		five_nums(head_a, head_b);
- 	if (size > 5)
- 		radix_sort(head_a, head_b, size);
+	if (size > 5)
+		radix_sort(head_a, head_b, size);
 }
