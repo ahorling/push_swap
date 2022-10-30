@@ -6,7 +6,7 @@
 /*   By: ahorling <ahorling@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/30 17:17:46 by ahorling      #+#    #+#                 */
-/*   Updated: 2022/10/30 18:35:42 by ahorling      ########   odam.nl         */
+/*   Updated: 2022/10/30 19:34:00 by ahorling      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ void	push_swap(int length, char **arguments);
 bool	check_input(int length, char **arguments);
 bool	check_dupes(int length, char **args, int argnum);
 bool	check_nonint(char *string);
+bool	check_zeros(t_node **head_a);
 
 //list based functions
 t_node	*create_node(int value);
