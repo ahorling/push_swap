@@ -6,7 +6,7 @@
 /*   By: alexander <alexander@student.codam.nl>       +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/11/04 16:28:53 by alexander     #+#    #+#                 */
-/*   Updated: 2022/10/30 16:37:10 by ahorling      ########   odam.nl         */
+/*   Updated: 2022/10/30 19:16:04 by ahorling      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,5 +33,7 @@ int	ft_atoi(const char *str)
 		value = value + str[i] - '0';
 		i++;
 	}
+	if (value == 0 && neg == -1)
+		return (0);
 	return (value * neg);
 }

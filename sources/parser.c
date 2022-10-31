@@ -6,7 +6,7 @@
 /*   By: ahorling <ahorling@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/17 07:43:35 by ahorling      #+#    #+#                 */
-/*   Updated: 2022/10/30 19:27:31 by ahorling      ########   odam.nl         */
+/*   Updated: 2022/10/31 13:00:50 by ahorling      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,8 +84,6 @@ bool	check_input(int length, char **args)
 	int	i;
 
 	i = 1;
-	if (length == 0)
-		return (false);
 	while (i <= length)
 	{
 		if (check_dupes(length, args, i) == false)

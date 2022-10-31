@@ -6,7 +6,7 @@
 /*   By: ahorling <ahorling@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/17 06:17:31 by ahorling      #+#    #+#                 */
-/*   Updated: 2022/10/30 17:06:10 by ahorling      ########   odam.nl         */
+/*   Updated: 2022/10/31 13:06:53 by ahorling      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,11 @@
 
 int	main(int argc, char **argv)
 {
+	if (argc == 1)
+		return (0);
 	if (check_input(argc - 1, argv) == false)
 	{
-		ft_printf("Error\n");
+		write(2, "Error\n", 6);
 		return (1);
 	}
 	push_swap(argc - 1, argv);
