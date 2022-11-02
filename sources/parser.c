@@ -6,7 +6,7 @@
 /*   By: ahorling <ahorling@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/17 07:43:35 by ahorling      #+#    #+#                 */
-/*   Updated: 2022/10/31 13:00:50 by ahorling      ########   odam.nl         */
+/*   Updated: 2022/11/02 17:50:45 by ahorling      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,8 @@ bool	num_checker(const char *argument)
 			return (false);
 		i++;
 	}
+	if (temp == false && i == 1)
+		return (false);
 	return (true);
 }
 
