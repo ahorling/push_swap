@@ -6,7 +6,7 @@
 /*   By: ahorling <ahorling@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/17 06:17:31 by ahorling      #+#    #+#                 */
-/*   Updated: 2022/10/31 13:06:53 by ahorling      ########   odam.nl         */
+/*   Updated: 2022/11/02 19:35:23 by ahorling      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,10 @@ int	main(int argc, char **argv)
 	if (check_input(argc - 1, argv) == false)
 	{
 		write(2, "Error\n", 6);
+		system("leaks push_swap");
 		return (1);
 	}
 	push_swap(argc - 1, argv);
+	system("leaks push_swap");
 	return (0);
 }
