@@ -53,7 +53,7 @@ MESSAGE_LIB	:=	"LIBRARIES READY"
 all: libraries $(NAME)
 
 $(NAME): $(OBJECTS)
-	@$(CC) $(LIBRARIES) -o $@ $^ $(HEADERS) -g
+	@$(CC) $(CCFLAGS) $(LIBRARIES) -o $@ $^ $(HEADERS) -g
 	@echo "$(GREEN)$(BOLD)$(MESSAGE_FIN)$(RESET)"
 
 $(OBJECT_DIR)/%.o: $(SOURCE_DIR)/%.c
