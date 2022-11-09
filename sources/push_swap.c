@@ -6,7 +6,7 @@
 /*   By: ahorling <ahorling@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/26 17:00:05 by ahorling      #+#    #+#                 */
-/*   Updated: 2022/11/02 19:34:07 by ahorling      ########   odam.nl         */
+/*   Updated: 2022/11/09 13:42:46 by ahorling      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ void	push_swap(int length, char **arguments)
 	{
 		free_list(&head_a);
 		write(2, "Error\n", 6);
-		return ;
+		exit(1);
 	}
 	if (check_ordered(&head_a) == true)
 	{
