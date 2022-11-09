@@ -6,7 +6,7 @@
 /*   By: ahorling <ahorling@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/26 20:20:10 by ahorling      #+#    #+#                 */
-/*   Updated: 2022/10/30 18:58:24 by ahorling      ########   odam.nl         */
+/*   Updated: 2022/11/09 14:39:50 by ahorling      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ void	swap(t_node **head)
 		return ;
 	temp = *head;
 	(*head)->prev->next = (*head)->next;
+	(*head)->next->prev = (*head)->prev;
 	(*head)->prev = (*head)->next;
 	(*head) = (*head)->next;
 	temp->next = (*head)->next;
