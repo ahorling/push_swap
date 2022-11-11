@@ -6,7 +6,7 @@
 /*   By: ahorling <ahorling@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/26 17:00:05 by ahorling      #+#    #+#                 */
-/*   Updated: 2022/11/09 13:42:46 by ahorling      ########   odam.nl         */
+/*   Updated: 2022/11/11 19:29:13 by ahorling      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,22 +26,28 @@ void	generate_list(int length, char **arguments, t_node **head)
 
 bool	check_zeros(t_node **head_a)
 {
-	int		temp1;
+	int		i;
+	int		size;
+	int		compnum;
 	t_node	*temp;
 
+	size = list_size(head_a);
 	temp = *head_a;
-	temp1 = 0;
-	if (temp->data == 0)
-		temp1++;
+	compnum = (*head_a)->data;
+	i = 1;
 	temp = temp->next;
-	while (temp != *head_a)
+	while (i <= size)
 	{
-		if (temp->data == 0)
-			temp1++;
-		temp = temp->next;
+		while (temp != *head_a)
+		{
+			if (temp->data == compnum)
+				return (false);
+			temp = temp->next;
+		}
+		*head_a = (*head_a)->next;
+		i++;
+		compnum = (*head_a)->data;
 	}
-	if (temp1 != 1 && temp1 != 0)
-		return (false);
 	return (true);
 }
 
