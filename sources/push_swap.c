@@ -6,7 +6,7 @@
 /*   By: ahorling <ahorling@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/26 17:00:05 by ahorling      #+#    #+#                 */
-/*   Updated: 2022/11/14 17:19:35 by ahorling      ########   odam.nl         */
+/*   Updated: 2022/11/14 18:18:45 by ahorling      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ bool	check_zeros(t_node **head_a)
 			temp = temp->next;
 		}
 		*head_a = (*head_a)->next;
+		temp = (*head_a)->next;
 		i++;
 		compnum = (*head_a)->data;
 	}
@@ -71,9 +72,5 @@ void	push_swap(int length, char **arguments)
 		return ;
 	}
 	begin_algos(&head_a, &head_b);
-	if (check_ordered(&head_a) == 1)
-	{
-		free_list(&head_a);
-		return ;
-	}
+	free_list(&head_a);
 }
